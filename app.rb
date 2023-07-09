@@ -1,12 +1,15 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require 'active_record'
 
 
 class BookApplication < Sinatra::Base
-    register Sinatra::ActiveRecordExtension
+  
 
     get '/' do
         erb :index
     end
 
 end
+
