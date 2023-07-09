@@ -9,7 +9,7 @@ gem 'rake'
 gem 'sqlite3'
 gem 'require_all'
 gem 'pry'
-
+gem 'rerun'
 gem 'rackup'
 gem 'bcrypt'
 gem 'rack-cors'
