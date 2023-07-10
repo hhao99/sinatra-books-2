@@ -31,6 +31,38 @@ end
 
 Simple and straightforward, it can also integrate with RoR ecosystem to develop the full stack application, like ActiveRecord, ERB views etc, and is more suitable for the API.
 
+## Route
+
+Here is the summaries of the Sinatra route
+
+```ruby
+get '/' do
+    "Hello World" # simple return string
+end
+
+get '/' do
+    erb :index # return the the view template name which was in the views directory
+end
+
+get '/user/:id' do
+    @user = User.find(params['id']) # named params route
+    erb :user
+end
+
+post '/users' do
+    @user = User.new do [u]
+        u.username = params[:username]
+        u.password = params[:password]
+    end
+    if @user.save do
+        redirect '/'
+    else
+        redirect '/user/new', errors = @user.errors
+    end
+end
+
+```
+
 # rake and rack
 
 ## what is rake
