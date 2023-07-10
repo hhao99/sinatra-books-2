@@ -78,6 +78,7 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  activerecord
   bcrypt
   minitest
   pry

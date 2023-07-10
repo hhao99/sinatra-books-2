@@ -4,6 +4,7 @@ ruby '3.2.2'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'rake'
 gem 'sqlite3'

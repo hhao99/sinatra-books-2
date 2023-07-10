@@ -7,27 +7,29 @@ require 'active_record'
 require 'yaml'
 require 'json'
 
-class BookApplication < Sinatra::Base
+class BaseApplication < Sinatra::Base
     
     configure :development do
         register Sinatra::Reloader
     end
 
     env = ENV['ENV'] || 'development'
-    root = File.expand_path('..', __FILE__)
-    config = YAML.load_file("#{root}/config/#{env}.yml")
+    root = File.expand_path("../..", __FILE__)
+    config = YAML.load_file("./config/#{env}.yml")
 
-    Dir.glob("#{root}/app/**/*.rb").each do |file|
+    ActiveRecord::Base.configurations = config
+    ActiveRecord::Base.establish_connection env.to_sym
+end
+
+    Dir.glob("./app/**/*.rb").each do |file|
         require file
     end
 
-    Dir.glob("#{root}/model/**/*.rb").each do |file|
+    Dir.glob("./model/**/*.rb").each do |file|
         require file
     end
 
     map '/' do
-        run App
+        run BookApplication
     end
 
-
-end
