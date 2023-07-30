@@ -5,10 +5,14 @@ require 'active_record'
 
 
 class BookApplication < Sinatra::Base
-  
+    
+    configure :development do
+        register Sinatra::Reloader
+    end
 
     get '/' do
-        erb :index
+        @books = Book.all
+        slim :index
     end
 
 end

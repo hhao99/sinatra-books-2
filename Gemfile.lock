@@ -14,7 +14,9 @@ GEM
     bcrypt (3.1.19)
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
+    daemons (1.4.1)
     diff-lcs (1.5.0)
+    eventmachine (1.2.7)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     method_source (1.0.0)
@@ -22,12 +24,9 @@ GEM
     multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
-    nio4r (2.5.9)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    puma (6.3.0)
-      nio4r (~> 2.0)
     rack (2.2.7)
     rack-cors (2.0.1)
       rack (>= 2.0.0)
@@ -68,7 +67,15 @@ GEM
       rack-protection (= 3.0.6)
       sinatra (= 3.0.6)
       tilt (~> 2.0)
+    slim (5.1.1)
+      temple (~> 0.10.0)
+      tilt (>= 2.1.0)
     sqlite3 (1.6.3-arm64-darwin)
+    temple (0.10.2)
+    thin (1.8.2)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (>= 1, < 3)
     tilt (2.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -81,7 +88,6 @@ DEPENDENCIES
   bcrypt
   minitest
   pry
-  puma
   rack-cors
   rackup
   rake
@@ -91,7 +97,9 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-contrib
+  slim
   sqlite3
+  thin
 
 RUBY VERSION
    ruby 3.1.4p223
